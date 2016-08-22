@@ -1,0 +1,2 @@
+class HouseBio < ApplicationRecord
+end

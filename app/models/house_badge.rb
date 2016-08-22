@@ -1,0 +1,2 @@
+class HouseBadge < ApplicationRecord
+end

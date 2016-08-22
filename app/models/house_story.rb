@@ -1,0 +1,2 @@
+class HouseStory < ApplicationRecord
+end

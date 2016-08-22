@@ -1,0 +1,2 @@
+class FeedVote < ApplicationRecord
+end
