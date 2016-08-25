@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_many :feeds, through: :feed_votes
   has_many :answers
   has_many :story_likes
-  belongs_to :house
+  belongs_to :house #, optional: true
+  has_many :questions
 end
