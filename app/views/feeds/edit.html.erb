@@ -1,0 +1,12 @@
+<h1> Update the feed !</h1>
+ <%= form_tag("/feeds/#{@feed.id}", method: :patch ) do  %>
+    <li><%= label_tag(:image) %>
+    <%= text_field_tag(:image,@feed.image)   %></li>
+
+    <li><%= label_tag(:content) %>
+    <%= text_field_tag(:content,@feed.content)   %></li>
+
+    <li><%= label_tag(:vote_number) %>
+    <%= text_field_tag(:vote_number,@feed.vote_number)   %></li>
+    <%= submit_tag("update a feed") %>
+ <% end %>

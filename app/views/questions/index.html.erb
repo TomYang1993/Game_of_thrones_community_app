@@ -1,0 +1,15 @@
+<h1>Questions are here !!!!!</h1>
+
+<% @questions.each do |question| %>
+<a href="/questions/<%= question.id %>">
+<ul>
+  <li><%= question.id %></li>
+  <li><%= question.content %></li>
+  <li><%= question.user_id %></li>
+
+</ul>
+</a>
+<% end %>
+
+
+<%= link_to "create a new question !", "/questions/new", method: :get %>

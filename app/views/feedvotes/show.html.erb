@@ -1,0 +1,8 @@
+<h1>Here is the feed !</h1>
+<%= render "partial" %>
+
+
+<%= link_to "update", "/feedvotes/#{@feedvote.id}/edit", method: :get %>
+<br>
+
+<%= link_to "delete", "/feedvotes/#{@feedvote.id}", method: :delete %>

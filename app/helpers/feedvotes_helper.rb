@@ -1,0 +1,2 @@
+module FeedvotesHelper
+end

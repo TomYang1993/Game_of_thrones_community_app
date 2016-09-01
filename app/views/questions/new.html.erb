@@ -1,0 +1,10 @@
+<h1> Introduce a new question !</h1>
+ <%= form_tag("/questions", method: :post ) do  %>
+    <li><%= label_tag(:content) %>
+    <%= text_field_tag(:content)   %></li>
+
+    <li><%= label_tag(:user_id) %>
+    <%= text_field_tag(:user_id)   %></li>
+
+    <%= submit_tag("create a question") %>
+ <% end %>

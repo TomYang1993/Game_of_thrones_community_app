@@ -1,0 +1,2 @@
+module HousepagesHelper
+end

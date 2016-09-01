@@ -1,0 +1,10 @@
+<h1> Update the question !</h1>
+ <%= form_tag("/questions/#{@question.id}", method: :patch ) do  %>
+    <li><%= label_tag(:content) %>
+    <%= text_field_tag(:content,@question.content)   %></li>
+
+    <li><%= label_tag(:user_id) %>
+    <%= text_field_tag(:user_id,@question.user_id)   %></li>
+
+    <%= submit_tag("update a vote") %>
+ <% end %>

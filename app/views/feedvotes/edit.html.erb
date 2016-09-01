@@ -1,0 +1,12 @@
+<h1> Update the feedvote !</h1>
+ <%= form_tag("/feedvotes/#{@feedvote.id}", method: :patch ) do  %>
+    <li><%= label_tag(:image) %>
+    <%= text_field_tag(:image,@feedvote.image)   %></li>
+
+    <li><%= label_tag(:user_id) %>
+    <%= text_field_tag(:user_id,@feedvote.user_id)   %></li>
+
+    <li><%= label_tag(:feed_id) %>
+    <%= text_field_tag(:feed_id,@feedvote.feed_id)   %></li>
+    <%= submit_tag("update a vote") %>
+ <% end %>

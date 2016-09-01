@@ -1,0 +1,12 @@
+<h1>Here is the question !</h1>
+
+<ul>
+  <li><%= @question.id %></li>
+  <li><%= @question.content %></li>
+  <li><%= @question.user_id %></li>
+</ul>
+
+<%= link_to "update", "/questions/#{@question.id}/edit", method: :get %>
+<br>
+
+<%= link_to "delete", "/questions/#{@question.id}", method: :delete %>

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GameOTApp</title>
+    <title>This is to test if the application overrides</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+
+    <% flash.each do |name, message| %>
+      <%= message %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

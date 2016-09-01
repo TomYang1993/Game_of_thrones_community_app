@@ -1,0 +1,16 @@
+<h1>Feedvotes are here !!!!!</h1>
+
+<% @feedvotes.each do |feedvote| %>
+<a href="/feedvotes/<%= feedvote.id %>">
+<ul>
+  <li><%= feedvote.id %></li>
+  <li><%= feedvote.image %></li>
+  <li><%= feedvote.user_id %></li>
+  <li><%= feedvote.feed_id %></li>
+
+</ul>
+</a>
+<% end %>
+
+
+<%= link_to "create a new feed !", "/feedvotes/new", method: :get %>

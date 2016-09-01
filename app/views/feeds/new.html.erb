@@ -1,0 +1,12 @@
+<h1> Introduce a new feed !</h1>
+ <%= form_tag("/feeds", method: :post ) do  %>
+    <li><%= label_tag(:image) %>
+    <%= text_field_tag(:image)   %></li>
+
+    <li><%= label_tag(:content) %>
+    <%= text_field_tag(:content)   %></li>
+
+    <li><%= label_tag(:vote_number) %>
+    <%= text_field_tag(:vote_number)   %></li>
+    <%= submit_tag("create a feed") %>
+ <% end %>
