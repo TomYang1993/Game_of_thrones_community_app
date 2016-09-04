@@ -10,6 +10,10 @@ class HousepagesController < ApplicationController
     @house_images = HouseImage.where(house_id: @house.id)
     @house_stories = HouseStory.where(house_id: @house.id)
     @house_badge = HouseBadge.where(house_id: @house.id)
+    @honor = 0
+    @house.users.each do |user|
+      @honor += user.honor
+    end
 
   end
 

@@ -1,6 +1,7 @@
 class FeedvotesController < ApplicationController
   def index
     @feedvotes = FeedVote.all
+
   end
 
   def show
@@ -14,11 +15,11 @@ class FeedvotesController < ApplicationController
   def create
     @feedvote = FeedVote.new(
       user_id: current_user.id,
-      feed_id: params[:id]
+      feed_id: params[:format]
     )
-    if @feedvote.save
+    if @feedvote.save 
       flash[:success] = "You have created a vote!"
-      redirect_to "/feedvotes/#{@feedvote.id}"
+      redirect_to "/feeds"
     else
       flash[:danger] = "Oh no, you should not have this message shown up right now! "
       redirect_to "/feedvotes/new"

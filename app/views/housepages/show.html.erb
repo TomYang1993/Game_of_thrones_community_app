@@ -1,5 +1,14 @@
 <h1>House <%= @house.name %> </h1>
 
+<%= @house.name %>
+<br>
+<%= @house.motto %>
+<br>
+<%= @house.background_image %>
+<br>
+<%= @honor %>
+<br>
+
 <% @house_bios.each do |bio| %>
 <%= bio.content %>
 <hr>
