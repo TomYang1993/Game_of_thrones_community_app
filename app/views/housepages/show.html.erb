@@ -1,1 +1,21 @@
-<h2>    </h2>
+<h1>House <%= @house.name %> </h1>
+
+<% @house_bios.each do |bio| %>
+<%= bio.content %>
+<hr>
+<% end %>
+
+<% @house_images.each do |image| %>
+<%= image.link %>
+<hr>
+<% end %>
+
+<% @house_stories.each do |story| %>
+<%= story.content %>
+<hr>
+<% end %>
+
+<% @house_badge.each do |badge| %>
+<%= badge.image %>
+<hr>
+<% end %>

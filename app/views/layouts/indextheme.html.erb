@@ -30,16 +30,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Feeds</a>
+                        <a class="page-scroll" href="#feeds">Feeds</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Stories</a>
+                        <a class="page-scroll" href="#stories">Stories</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Forum</a>
+                        <a class="page-scroll" href="#forum">Forum</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#team">Houses</a>
+                        <a class="page-scroll" href="#houses">Houses</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -49,7 +49,8 @@
                         <a class="page-scroll" href="/users/sign_in">Sign in/Sign up</a>
                       <% end %>
                       <% if current_user %>
-                      <a class="page-scroll" href="#">Welcome ! <%= current_user.email %></a>
+                      <a class="page-scroll" href="/">Welcome ! <%= current_user.email %></a>
+                      <a><%= link_to "Log out", "/users/sign_out", method: 'delete' %></a>
                       <% end %>
                     </li>
                 </ul>

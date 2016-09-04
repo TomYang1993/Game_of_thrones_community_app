@@ -1,0 +1,13 @@
+<h1> Update the story !</h1>
+ <%= form_tag("/stories/#{@story.id}", method: :patch ) do  %>
+    <li><%= label_tag(:content) %>
+    <%= text_field_tag(:content,@story.content)   %></li>
+
+    <li><%= label_tag(:image) %>
+    <%= text_field_tag(:image,@story.image)   %></li>
+
+    <li><%= label_tag(:title) %>
+    <%= text_field_tag(:title,@story.title)   %></li>
+
+    <%= submit_tag("update a story") %>
+ <% end %>

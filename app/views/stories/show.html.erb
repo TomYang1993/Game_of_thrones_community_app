@@ -1,0 +1,18 @@
+<h1>Here is the story !</h1>
+
+<ul>
+  <li>Story ID:<%= @story.id %></li>
+  <li><%= @story.content %></li>
+
+
+  <% @story.users.each do |user| %>
+    <li> <h3>Author : <%= user.email %> </h3> created this </li>
+
+  <% end %>
+</ul>
+
+
+<%= link_to "update", "/stories/#{@story.id}/edit", method: :get %>
+<br>
+
+<%= link_to "delete", "/stories/#{@story.id}", method: :delete %>

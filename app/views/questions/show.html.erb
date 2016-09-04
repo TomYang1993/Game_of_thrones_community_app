@@ -1,10 +1,31 @@
 <h1>Here is the question !</h1>
 
 <ul>
-  <li><%= @question.id %></li>
+  <li>Question ID:<%= @question.id %></li>
   <li><%= @question.content %></li>
-  <li><%= @question.user_id %></li>
+  <ol>
+    <% @answers.each do |answer| %>
+      <li><%= answer.user.email %><br><%= answer.content %></li>
+      <hr>
+    <% end %>
+  </ol>
+
+  <%= form_tag("/answers",method: :post) do%>
+  <li><%= label_tag(:content) %>
+  <%= text_field_tag(:content)   %></li>
+
+  <li><%= label_tag(:question_id) %>
+  <%= text_field_tag(:question_id,@question.id)   %></li>
+
+  <li><%= label_tag(:user_id) %>
+  <%= text_field_tag(:user_id,current_user.id)   %></li>
+
+  <%= submit_tag("Answer the question !!") %>
+  <% end %>
+
+  <li>User <h3><%= @question.user.email %></h3>  put forward this issue</li>
 </ul>
+
 
 <%= link_to "update", "/questions/#{@question.id}/edit", method: :get %>
 <br>

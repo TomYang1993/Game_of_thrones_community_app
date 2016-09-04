@@ -1,0 +1,21 @@
+<h1>Stories are here !!!!!</h1>
+
+<% @stories.each do |story| %>
+<a href="/stories/<%= story.id %>">
+<ul>
+  <li><%= story.id %></li>
+  <li> <h2>Title: <%= story.title %></h2></li>
+  <li><%= story.content %></li>
+  <li><%= story.image %></li>
+
+  <% story.users.each do |user| %>
+    <li> <h3>Author : <%= user.email %> </h3> created this </li>
+
+  <% end %>
+  <hr>
+</ul>
+</a>
+<% end %>
+
+
+<%= link_to "create a new story !", new_story_path, method: :get %>

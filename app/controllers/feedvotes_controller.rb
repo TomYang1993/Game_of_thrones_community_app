@@ -13,9 +13,8 @@ class FeedvotesController < ApplicationController
 
   def create
     @feedvote = FeedVote.new(
-      image: params[:image],
-      user_id: params[:user_id],
-      feed_id: params[:feed_id]
+      user_id: current_user.id,
+      feed_id: params[:id]
     )
     if @feedvote.save
       flash[:success] = "You have created a vote!"
@@ -34,7 +33,6 @@ class FeedvotesController < ApplicationController
   def update
     @feedvote = FeedVote.find_by(id: params[:id])
     @feedvote.update(
-      image: params[:image],
       user_id: params[:user_id],
       feed_id: params[:feed_id]
     )

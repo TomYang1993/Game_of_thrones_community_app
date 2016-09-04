@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825004430) do
+ActiveRecord::Schema.define(version: 20160904192003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 20160825004430) do
   create_table "feed_votes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "feed_id"
-    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,3 +1,5 @@
 <h1>  housepages  board  </h1>
 
-<h2><%= @houses %></h2>
+<% @houses.each do |house| %>
+<li><%= house.name %></li>
+<% end %>

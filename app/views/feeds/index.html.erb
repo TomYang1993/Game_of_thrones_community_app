@@ -16,54 +16,30 @@
     </header>
 
     <!-- Main Content -->
+
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Man must explore, and this is exploration at its greatest
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                        </h2>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Science has not yet mastered prophecy
-                        </h2>
-                        <h3 class="post-subtitle">
-                            We predict too much for the next year and yet far too little for the next ten.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Failure is not an option
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
-                <hr>
+                <% @feeds.each do |feed| %>
+                  <div class="post-preview">
+                      <a href="/feeds/<%= feed.id %>">
+                          <h2 class="post-title">
+                              <%= feed.id %>
+                          </h2>
+                          <h3 class="post-subtitle">
+                              <%= feed.content %>
+                          </h3>
+                          <img src=<%= feed.image %> >
+                      </a>
+                      <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                      <div>Vote : <%= feed.vote_number %></div>
+                      <%= link_to "Like it!",feedvotes_path ,method: :post%>
+                  </div>
+                  <hr>
+              <% end %>
+
+
+
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
@@ -115,19 +91,9 @@
 
 
 
-    <h1>Feeds are here !!!!!</h1>
 
-    <% @feeds.each do |feed| %>
-    <a href="/feeds/<%= feed.id %>">
-    <ul>
-      <li><%= feed.id %></li>
-      <li><%= feed.image %></li>
-      <li><%= feed.content %></li>
-      <li><%= feed.vote_number %></li>
 
-    </ul>
-    </a>
-    <% end %>
+
 
 
     <%= link_to "create a new feed !", "/feeds/new", method: :get %>

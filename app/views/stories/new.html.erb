@@ -1,0 +1,13 @@
+<h1> Introduce a new story !</h1>
+ <%= form_tag("/stories", method: :post ) do  %>
+    <li><%= label_tag(:content) %>
+    <%= text_field_tag(:content)   %></li>
+
+    <li><%= label_tag(:image) %>
+    <%= text_field_tag(:image)   %></li>
+
+    <li><%= label_tag(:title) %>
+    <%= text_field_tag(:title)   %></li>
+
+    <%= submit_tag("create a question") %>
+ <% end %>
