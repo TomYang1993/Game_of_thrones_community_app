@@ -1,0 +1,35 @@
+<h1>  Welcome to your profile page  </h1>
+
+<li><h4>username or user email</h4><%= @user.email %></li>
+
+<li><h4>the profile pic link</h4><%= @user.profile_pic %></li>
+
+<li><h4>Honor that a user has</h4><%= @user.honor %></li>
+
+<li><h4>House the user belong</h4><%= @user.house.name %></li>
+
+
+
+<h2>Feeds user liked !</h2>
+<% @user.feed_votes.each do |feedvote| %>
+<li><%=  feedvote.feed.content %></li>
+<% end %>
+
+<h2>Questions user put !</h2>
+<% @user.questions.each do |question| %>
+<li><%=  question.content %></li>
+<% end %>
+
+
+<h2>Questions user involved !</h2>
+<% @user.answers.each do |answer| %>
+<li><%=  answer.question.id %></li>
+<li><%=  answer.question.content %></li>
+<% end %>
+
+
+<h2>  Stories user liked !</h2>
+
+
+
+<h2>  Stories user created !</h2>

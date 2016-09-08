@@ -20,7 +20,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">GOT Community</a>
+                <a class="navbar-brand page-scroll" href="/">GOT Community</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,15 +44,21 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
-                    <li>
+
                       <% if !current_user %>
+                      <li>
                         <a class="page-scroll" href="/users/sign_in">Sign in/Sign up</a>
+                      </li>
                       <% end %>
                       <% if current_user %>
-                      <a class="page-scroll" href="/">Welcome ! <%= current_user.email %></a>
-                      <a><%= link_to "Log out", "/users/sign_out", method: 'delete' %></a>
+                      <li>
+                        <a class="page-scroll" href="/usrinterfaces">Welcome ! <%= current_user.email %></a>
+                      </li>
+                      <li>
+                        <%= link_to "Log out", "/users/sign_out", method: 'delete' %>
+                      </li>
                       <% end %>
-                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

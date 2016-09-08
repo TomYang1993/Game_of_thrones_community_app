@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   resources :answers
   resources :stories
   resources :storylikes
+  resources :housepages
+
+  get '/usrinterfaces' => 'usrinterfaces#index'
+  get '/usrinterface' => 'usrinterfaces#show'
 
   resources :userpages
-  resources :housepages
+
 
 end
