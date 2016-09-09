@@ -1,10 +1,15 @@
 class FeedsController < ApplicationController
   layout 'feedstheme'
   def index
+    url = "http://www.makinggameofthrones.com/production-diary?format=RSS"
+    @outsidefeeds = Feedjira::Feed.fetch_and_parse url
     @feeds = Feed.all
+
   end
 
   def show
+    url = "http://www.makinggameofthrones.com/production-diary?format=RSS"
+    @outsidefeeds = Feedjira::Feed.fetch_and_parse url
     @feed = Feed.find_by(id: params[:id])
   end
 
