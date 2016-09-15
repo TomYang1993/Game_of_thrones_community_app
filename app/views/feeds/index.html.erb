@@ -1,6 +1,5 @@
 
 
-
 <!--  header -->
     <header class="intro-header" style="background-image: url('http://static1.squarespace.com/static/52fc05c9e4b08fc45bd99090/5331dfe2e4b0f77da2ddde51/57a5012d6b8f5b05fd5d103f/1470850518409/mgot-header-empty-throne-1024x576.jpg?format=750w')">
         <div class="container">
@@ -27,12 +26,15 @@
                           <h2 class="post-title">
                               <%= entry.title %>
                           </h2></a>
-                          <h3 class="post-subtitle">
+                          <h4 class="post-subtitle">
                               <%= entry.summary %>
                           </h3>
 
-                          <div>Vote : </div>
-                  
+                          <div>
+                            Vote :  <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                          </div>
+
                   </div>
                   <hr>
               <% end %>
