@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   root 'homes#index'
   get '/' => 'homes#index'
   get '/test' => 'homes#show'
@@ -16,6 +16,5 @@ Rails.application.routes.draw do
   get '/usrinterface' => 'usrinterfaces#show'
 
   resources :userpages
-
 
 end
