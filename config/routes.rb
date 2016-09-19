@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'user/registrations' }
   root 'homes#index'
   get '/' => 'homes#index'
   get '/test' => 'homes#show'
+  patch '/test' => 'homes#update'
+  patch '/skip' => 'homes#skip'
 
   resources :feeds
   resources :feedvotes

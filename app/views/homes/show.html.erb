@@ -3,12 +3,54 @@
 </div>
 
 
+
+
+<div style="padding:120px;" id="housequiz" class="pb_feed" data-embed-by="2a62c4d3-bcfc-45aa-9628-ed607eb5acd9" data-game="/unoriginal10/which-game-of-thrones-house-are-you-in" data-recommend="false" data-game-info="false" data-comments="false" data-shares="false" >
+</div>
+<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
+
+
+
+
+
+
 <div ng-app="app">
    <div ng-controller="getHouseCtrl" >
-     <div style="padding:120px;" id="housequiz" class="pb_feed" data-embed-by="2a62c4d3-bcfc-45aa-9628-ed607eb5acd9" data-game="/unoriginal10/which-game-of-thrones-house-are-you-in" data-recommend="false" data-game-info="false" data-comments="false" data-shares="false" >
-     </div>
+     <ul>
+     <li ng-repeat="house in houses">{{house.name}}</li>
+   </ul>
+
+
+
+      <div class="container">
+        <form>
+          <div class="form-group row">
+
+            <div class="col-sm-4">
+              <div class="nullable">
+                <label>House name:
+
+                   <select ng-model="selectedHouse" ng-options="house as house.name for house in houses">
+                     <option value="">-- choose color --</option>
+                   </select>
+                 </label><br/>
+             </div>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <div class="offset-sm-2 col-sm-3">
+              <a href=""><button ng-click="confirmBt()" type="submit" class="btn btn-primary">confirm!</button></a>
+            </div>
+            <div class="offset-sm-5 col-sm-3">
+              <a href="/test"><button ng-click="rewindBt()" type="submit" class="btn btn-primary">rewind please!</button></a>
+            </div>
+            <div class="offset-sm-5 col-sm-3">
+              <a href="/skip"><button ng-click="skipBt()" type="submit" class="btn btn-warning">Skip the test!</button></a>
+            </div>
+          </div>
+        </form>
+      </div>
   </div>
 </div>
-
-
-<script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>

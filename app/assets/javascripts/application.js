@@ -16,3 +16,10 @@
 //= require angular
 //= require app
 //= require_tree .
+
+
+$(document).ready(function() {
+  if ($('div #result_details').text().length > 1) {
+    console.log('THE ENDDDDDDDDD');
+  }
+})
