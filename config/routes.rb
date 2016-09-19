@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/' => 'homes#index'
   get '/test' => 'homes#show'
   patch '/test' => 'homes#update'
-  patch '/skip' => 'homes#skip'
+  get '/skip' => 'homes#skip'
 
   resources :feeds
   resources :feedvotes

@@ -13,7 +13,8 @@ class HomesController < ApplicationController
 
   def update
     @user = current_user
-    @user.update!(house_id: params[:house_id])
+    @house = House.find_by(name: params[:house_name])
+    @user.update!(house_id: @house.id)
     redirect_to '/usrinterface'
   end
 

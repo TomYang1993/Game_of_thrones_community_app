@@ -13,20 +13,21 @@
                       {id:7,name:"Targaryen"},
                       {id:8,name:"Tyrell"}
                     ]
-    $scope.selectedHouse = $scope.houses[0].name
+
 
      $scope.confirmBt = function(){
-       $http.patch('/test',{house_id: 3}).success(function(){
-         console.log("test");
+       $http.patch('/test',{house_name: $scope.selectedHouse.name}).success(function(){
+
+         console.log($scope.selectedHouse.name)
        })
      }
 
 
      $scope.skipBt = function(){
-       $location.url()"/skip" ;
+       $location.url() + "/skip" ;
      }
 
-     
+
 
    });
 })();

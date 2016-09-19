@@ -16,9 +16,7 @@
 
 <div ng-app="app">
    <div ng-controller="getHouseCtrl" >
-     <ul>
-     <li ng-repeat="house in houses">{{house.name}}</li>
-   </ul>
+
 
 
 
@@ -31,7 +29,7 @@
                 <label>House name:
 
                    <select ng-model="selectedHouse" ng-options="house as house.name for house in houses">
-                     <option value="">-- choose color --</option>
+                     <option value="">-- choose house --</option>
                    </select>
                  </label><br/>
              </div>
