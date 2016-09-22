@@ -57,11 +57,9 @@ group :development do
   gem 'pry-rails'
 end
 
-<<<<<<< 6b87a4c2c10dd8adcc0ea180e7832ddf5e09cba4
-group :development do
-=======
+
 group :production do
->>>>>>> heroku setup
+
   gem 'rails_12factor'
 end
 
