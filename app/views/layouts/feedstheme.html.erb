@@ -11,8 +11,8 @@
 
   </head>
 
-  <body>
-
+  <body  ng-app="app">
+    <div ng-controller="feedVoteCtrl" ng-init="setup()">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -27,19 +27,23 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/feeds">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">interviews</a>
+                        <a ng-click=sortCategory('Buzz')>Buzz</a>
                     </li>
                     <li>
-                        <a href="post.html">inside the series</a>
+                        <a ng-click=sortCategory('Interviews')>Interviews</a>
                     </li>
                     <li>
-                        <a href="contact.html">inside the books</a>
+                        <a ng-click=sortCategory("TvSeries")>Tv series</a>
+                    </li>
+                    <li>
+                        <a ng-click=sortCategory('Debrief')>Debrief</a>
                     </li>
                 </ul>
             </div>
@@ -52,7 +56,9 @@
 
 
 
+
     <%= yield %>
+  </div>
     <%= javascript_include_tag 'feedstheme/feedstheme_manifest' %>
   </body>
 </html>

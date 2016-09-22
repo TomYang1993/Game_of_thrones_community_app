@@ -1,6 +1,6 @@
 <ul>
   <li><%= @feed.id %></li>
   <li><%= @feed.image %></li>
-  <li><%= @feed.content %></li>
+  <li><%= @feed.content.html_safe %></li>
   <li><%= @feed.vote_number %></li>
 </ul>
