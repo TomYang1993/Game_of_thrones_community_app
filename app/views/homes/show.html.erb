@@ -2,53 +2,39 @@
    <h2 style="padding-top:200px;">Let's do some test!</h2>
 </div>
 
-
-
-
+<!-- embedded javascript quiz -->
 <div style="padding:120px;" id="housequiz" class="pb_feed" data-embed-by="2a62c4d3-bcfc-45aa-9628-ed607eb5acd9" data-game="/unoriginal10/which-game-of-thrones-house-are-you-in" data-recommend="false" data-game-info="false" data-comments="false" data-shares="false" >
 </div>
 <script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
 
+<!-- confirmation area -->
+
+<div class="container">
+    <%= form_tag("/test", method:"patch") do %>
+      <div >
+        <%= label_tag(:house_id,"confirm your House Name or Just choose what you like:") %>
+        <%= select_tag(:house_id, options_for_select(@house_choices) , {:class => "selectpicker show-tick"}) %>
+
+      </div>
+      <input type="submit" class="btn btn-primary" value="Confirm!" />
+  <% end %>
+    <br>
+    <br>
+    <div >
+      <a href="/test"><button type="submit" class="btn btn-primary">rewind please!</button></a>
+    </div>
+    <br>
+    <div >
+      <a href="/skip"><button type="submit" class="btn btn-warning">Skip the test!</button></a>
+    </div>
+</div>
 
 
-
+<!-- may be in use area -->
 
 
 <div ng-app="app">
    <div ng-controller="getHouseCtrl" >
 
-
-
-
-      <div class="container">
-        <form>
-          <div class="form-group row">
-
-            <div class="col-sm-4">
-              <div class="nullable">
-                <label>House name:
-
-                   <select ng-model="selectedHouse" ng-options="house as house.name for house in houses">
-                     <option value="">-- choose house --</option>
-                   </select>
-                 </label><br/>
-             </div>
-            </div>
-          </div>
-
-
-          <div class="form-group row">
-            <div class="offset-sm-2 col-sm-3">
-              <a href=""><button ng-click="confirmBt()" type="submit" class="btn btn-primary">confirm!</button></a>
-            </div>
-            <div class="offset-sm-5 col-sm-3">
-              <a href="/test"><button ng-click="rewindBt()" type="submit" class="btn btn-primary">rewind please!</button></a>
-            </div>
-            <div class="offset-sm-5 col-sm-3">
-              <a href="/skip"><button ng-click="skipBt()" type="submit" class="btn btn-warning">Skip the test!</button></a>
-            </div>
-          </div>
-        </form>
-      </div>
   </div>
 </div>

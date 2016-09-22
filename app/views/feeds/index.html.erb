@@ -1,5 +1,7 @@
 
 
+
+
 <!--  header -->
     <header class="intro-header" style="background-image: url('http://static1.squarespace.com/static/52fc05c9e4b08fc45bd99090/5331dfe2e4b0f77da2ddde51/57a5012d6b8f5b05fd5d103f/1470850518409/mgot-header-empty-throne-1024x576.jpg?format=750w')">
         <div class="container">
@@ -16,29 +18,25 @@
     </header>
 
 <!-- rss feeds making game of thrones-->
-
+<div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <% @outsidefeeds.entries.each do |entry| %>
-                  <div class="post-preview">
-                      <a href="#">
-                          <h2 class="post-title">
-                              <%= entry.title %>
-                          </h2></a>
-                          <h4 class="post-subtitle">
-                              <%= entry.summary %>
-                          </h3>
+                  <div ng-repeat="feed in feeds | limitTo:items" class="post-preview" ng-show="feed.display">
+                    <a href="/feeds/{{feed.id}} ">
+                      <h2 class="post-title">
+                          {{feed.title}}
+                      </h2>
+                    </a>
+                      <h4 class="post-subtitle">
+                          {{feed.summary}}
+                      </h4>
 
-                          <div>
-                            Vote :  <i class="fa fa-heart" aria-hidden="true"></i>
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                          </div>
-
-                  </div>
+                      <div>
+                        Vote :    <i ng-click="favorite(feed)" ng-class="{'fa-heart': feed.favorite, 'fa-heart-o': !feed.favorite}" class="fa fa-lg pull-right heart" aria-hidden="true"></i>
+                      </div>
+                    </div>
                   <hr>
-              <% end %>
-
 
 
 
@@ -46,15 +44,18 @@
 
                 <!-- Pager -->
                 <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
+                      <li class="next" ng-if="totalVisible > 10" >
+                          <a ng-click="toggleShow()">Older Posts &rarr;</a>
+                      </li>
+
                 </ul>
-            </div>
-        </div>
+
+          </div>
+      </div>
     </div>
 
     <hr>
+</div>
 
     <!-- Footer -->
     <footer>

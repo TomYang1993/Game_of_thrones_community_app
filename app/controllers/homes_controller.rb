@@ -9,12 +9,15 @@ class HomesController < ApplicationController
 
   def show
     @houses = House.all
+    @house_choices = []
+    @houses.each do |house|
+      @house_choices << [house.name, house.id]
+    end
   end
 
   def update
     @user = current_user
-    @house = House.find_by(name: params[:house_name])
-    @user.update!(house_id: @house.id)
+    @user.update!(house_id: params[:house_id])
     redirect_to '/usrinterface'
   end
 
