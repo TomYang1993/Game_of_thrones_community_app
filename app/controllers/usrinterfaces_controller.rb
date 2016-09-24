@@ -1,4 +1,5 @@
 class UsrinterfacesController < ApplicationController
+  layout 'usertheme'
   def index
     @users = User.all
 

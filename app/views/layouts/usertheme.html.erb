@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GameOTApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+    <%= stylesheet_link_tag 'usertheme/usertheme_manifest' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body >
+    <div class="wrapper" style="background-color:#222;">
+    		<!--=== Header ===-->
+    		<div class="header" style="background-color: black;border-bottom:0px;">
+    			<div class="container" >
+    				<!-- Logo -->
+    				<a class="logo" href="#">
+    					<img style="height:60px;width:60px;"src="<%= current_user.house.background_image %>"  alt="Logo">
+    				</a>
+    				<!-- End Logo -->
+
+    				<!-- Topbar -->
+    				<div class="topbar">
+    					<ul class="loginbar pull-right">
+    						<li class="hoverSelector">
+    							<i class="fa fa-anchor"></i>
+    						</li>
+
+    						<li><%= link_to "Log out" ,destroy_user_session_path, method: :delete %></li>
+
+    					</ul>
+    				</div>
+    				<!-- End Topbar -->
+
+    				<!-- Toggle get grouped for better mobile display -->
+    				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+    					<span class="sr-only">Toggle navigation</span>
+    					<span class="fa fa-bars"></span>
+    				</button>
+    				<!-- End Toggle -->
+    			</div><!--/end container-->
+
+
+
+
+    			<!-- Collect the nav links, forms, and other content for toggling -->
+    			<div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+    				<div class="container">
+    					<ul class="nav navbar-nav">
+    						<!-- Home -->
+    						<li >
+    							<a href="/" >Home</a>
+    						</li>
+    						<!-- End Home -->
+
+                <!-- Home -->
+    						<li >
+    							<a href="/feeds" >Feeds</a>
+    						</li>
+    						<!-- End Home -->
+
+                <!-- Home -->
+    						<li >
+    							<a href="/questions" >Forum</a>
+    						</li>
+    						<!-- End Home -->
+
+                <!-- Home -->
+    						<li >
+    							<a href="/housepages/<%= current_user.house.id %>" >house</a>
+    						</li>
+    						<!-- End Home -->
+
+
+
+    						<!-- Search Block -->
+    						<!-- <li>
+    							<i class="search fa fa-search search-btn"></i>
+    							<div class="search-open">
+    								<div class="input-group animated fadeInDown">
+    									<input type="text" class="form-control" placeholder="Search">
+    									<span class="input-group-btn">
+    										<button class="btn-u" type="button">Go</button>
+    									</span>
+    								</div>
+    							</div>
+    						</li> -->
+    						<!-- End Search Block -->
+
+    					</ul>
+    				</div><!--/end container-->
+    			</div><!--/navbar-collapse-->
+    		</div>
+    		<!--=== End Header ===-->
+
+
+
+
+
+    <%= yield %>
+    	</div><!--/wrapper-->
+  </body>
+
+
+  <%= javascript_include_tag 'usertheme/usertheme_manifest' %>
+  <script type="text/javascript">
+  jQuery(document).ready(function() {
+    App.init();
+    App.initCounter();
+    App.initScrollBar();
+    Datepicker.initDatepicker();
+    StyleSwitcher.initStyleSwitcher();
+  });
+	</script>
+</html>

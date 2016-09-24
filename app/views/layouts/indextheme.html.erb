@@ -5,69 +5,92 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
     <%= stylesheet_link_tag 'indextheme/indextheme_manifest' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
   </head>
 
-  <body id="page-top" class="index">
+  <body id="body" data-spy="scroll" data-target=".one-page-header" class="demo-lightbox-gallery dark">
 
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top affix">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="/">Community Of Thrones</a>
-            </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#feeds">Feeds</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#stories">Stories</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#forum">Forum</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#houses">Houses</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
+    	<!--=== Header ===-->
+    	<nav class="one-page-header navbar navbar-default navbar-fixed-top" role="navigation">
+    		<div class="container">
+    			<div class="menu-container page-scroll">
+    				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+    					<span class="sr-only">Toggle navigation</span>
+    					<span class="icon-bar"></span>
+    					<span class="icon-bar"></span>
+    					<span class="icon-bar"></span>
+    				</button>
 
-                      <% if !current_user %>
-                      <li>
-                        <a class="page-scroll" href="/users/sign_in">Sign in/Sign up</a>
-                      </li>
-                      <% end %>
-                      <% if current_user %>
-                      <li>
-                        <a class="page-scroll" href="/usrinterfaces">Welcome ! <%= current_user.email %></a>
-                      </li>
-                      <li>
-                        <%= link_to "Log out", "/users/sign_out", method: 'delete' %>
-                      </li>
-                      <% end %>
+    				<a class="navbar-brand" href="#intro">
+    					<span>C</span>ommunity of Thrones
+    					<!-- <img src="assets/img/logo1.png" alt="Logo"> -->
+    				</a>
+    			</div>
 
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+    			<!-- Collect the nav links, forms, and other content for toggling -->
+    			<div class="collapse navbar-collapse navbar-ex1-collapse">
+    				<div class="menu-container">
+    					<ul class="nav navbar-nav">
+    						<li class="page-scroll home">
+    							<a href="/">Home</a>
+    						</li>
+                <% if !current_user %>
+    						<li class="page-scroll">
+    							<a href="#about">Feeds</a>
+    						</li>
+    						<li class="page-scroll">
+    							<a href="#services">Forum</a>
+    						</li>
+    						<li class="page-scroll">
+    							<a href="#news">Houses</a>
+    						</li>
+    						<li class="page-scroll">
+    							<a href="#contact">Contact</a>
+    						</li>
+                  <% end %>
+                  <% if current_user %>
+                    <li class="page-scroll">
+                       <a href="/usrinterface">Welcome, <%= current_user.email %></a>
+                    </li>
+                  <% end %>
+    						<li class="page-scroll">
+                  <% if current_user %>
+                  <%= link_to "Log out" ,destroy_user_session_path, method: :delete %>
+                  <% end %>
+                  <% if !current_user %>
+    							<a href="/users/sign_in">Sign in/Sign up</a>
+                  <% end %>
+    						</li>
+
+    					</ul>
+    				</div>
+    			</div>
+    			<!-- /.navbar-collapse -->
+    		</div>
+    		<!-- /.container -->
+    	</nav>
+    	<!--=== End Header ===-->
 
 
     <%= yield %>
   </body>
+
+
   <%= javascript_include_tag 'indextheme/indextheme_manifest' %>
+  <script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			App.initCounter();
+			App.initParallaxBg();
+			LoginForm.initLoginForm();
+			ContactForm.initContactForm();
+			OwlCarousel.initOwlCarousel();
+			StyleSwitcher.initStyleSwitcher();
+			RevolutionSlider.initRSfullScreen();
+		});
+	</script>
 </html>

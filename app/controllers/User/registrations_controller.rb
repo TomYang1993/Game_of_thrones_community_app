@@ -8,9 +8,13 @@ class User::RegistrationsController < Devise::RegistrationsController
   # # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do
+      resource.profile_pic = "http://theredlist.com/media/database/films/tv-series/fantasy-and-sci-fi/2010/game-of-thrones/032-game-of-thrones-theredlist.jpg"
+      resource.honor = 0
+      resource.save
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -53,10 +57,12 @@ class User::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     super(resource)
+    "/test"
   end
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     super(resource)
+    "/test"
   end
 end

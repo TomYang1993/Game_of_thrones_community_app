@@ -1,7 +1,6 @@
 class HousepagesController < ApplicationController
   def index
     @houses = House.all
-
   end
 
   def show
@@ -14,7 +13,6 @@ class HousepagesController < ApplicationController
     @house.users.each do |user|
       @honor += user.honor
     end
-
   end
 
   def new

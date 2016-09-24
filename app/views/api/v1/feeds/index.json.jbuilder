@@ -7,4 +7,5 @@ json.array! @feeds.each do |feed|
   json.favorite @currentvotes.include?(feed)
   json.category feed.categories
   json.display true
+  json.votes feed.feed_votes.size
 end

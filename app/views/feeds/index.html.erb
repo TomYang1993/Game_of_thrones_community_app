@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                  <div ng-repeat="feed in feeds | limitTo:items" class="post-preview" ng-show="feed.display">
+                  <div ng-repeat="feed in feeds " class="post-preview" ng-show="feed.display">
                     <a href="/feeds/{{feed.id}} ">
                       <h2 class="post-title">
                           {{feed.title}}
@@ -33,7 +33,7 @@
                       </h4>
 
                       <div>
-                        Vote :    <i ng-click="favorite(feed)" ng-class="{'fa-heart': feed.favorite, 'fa-heart-o': !feed.favorite}" class="fa fa-lg pull-right heart" aria-hidden="true"></i>
+                        Vote : {{feed.votes}}   <i ng-click="favorite(feed)" ng-class="{'fa-heart': feed.favorite, 'fa-heart-o': !feed.favorite}" class="fa fa-lg pull-right heart" aria-hidden="true"></i>
                       </div>
                     </div>
                   <hr>
@@ -45,7 +45,7 @@
                 <!-- Pager -->
                 <ul class="pager">
                       <li class="next" ng-if="totalVisible > 10" >
-                          <a ng-click="toggleShow()">Older Posts &rarr;</a>
+                          <a ng-click="toggleShow()">Load more &rarr;</a>
                       </li>
 
                 </ul>
