@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :feeds
   resources :questions
+  get '/hot' => 'questions#hot'
+  get '/filternew' => 'questions#filternew'
   resources :answers
   resources :housepages
 

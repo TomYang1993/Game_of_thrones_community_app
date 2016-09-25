@@ -1,10 +1,7 @@
 class User::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
-before_action :configure_permitted_parameters, if: :devise_controller?
-def configure_permitted_parameters
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name])
-end
+
 
   # GET /resource/sign_up
   # def new
@@ -14,7 +11,6 @@ end
   # POST /resource
   def create
     super do
-      resource.user_name = params[:user_name]
       resource.profile_pic = "http://dergipark.gov.tr/assets/app/images/buddy_sample.png"
       resource.honor = 0
       resource.save
@@ -27,11 +23,11 @@ end
   # end
 
   # PUT /resource
-  def update
-    super do
-      resource.update!(user_name: params[:user_name])
-    end
-  end
+  # def update
+  #   super do
+  #     resource.update!(user_name: params[:user_name])
+  #   end
+  # end
 
   # DELETE /resource
   # def destroy

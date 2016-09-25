@@ -1,5 +1,6 @@
 class FeedsController < ApplicationController
   layout 'feedstheme'
+  before_action :authenticate_user!
   def index
     url = "http://www.makinggameofthrones.com/production-diary?format=RSS"
     @outsidefeeds = Feedjira::Feed.fetch_and_parse url

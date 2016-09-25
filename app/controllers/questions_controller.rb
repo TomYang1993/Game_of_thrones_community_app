@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  layout 'questionstheme'
+  before_action :authenticate_user!
   def index
     @questions = Question.all
   end
@@ -44,5 +46,15 @@ class QuestionsController < ApplicationController
     @question = Question.find_by(id: params[:id])
     @question.destroy
     redirect_to "/questions"
+  end
+
+  def hot
+    @questions = Question.all
+    @questions = @questions.sort { |a,b| b.answers.size <=> a.answers.size }
+  end
+
+  def filternew
+    @questions = Question.all
+    @questions = @questions.sort { |a,b| b.created_at <=> a.created_at }
   end
 end
