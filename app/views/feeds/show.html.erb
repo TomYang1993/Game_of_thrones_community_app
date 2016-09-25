@@ -1,23 +1,55 @@
-<header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+<header class="intro-header" style="background-image: url('http://cdn.collider.com/wp-content/uploads/2016/05/game-of-thrones-map.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Clean Blog</h1>
-                        <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    
-<h1>Here is the feed !</h1>
-<%= render "partial" %>
+<div class="container">
+<%= @feed.content.html_safe %>
+</div>
 
+<!-- Footer -->
+<footer style="padding:10px 0px 10px 0px">
+    <div class="container">
+        <div class="row">
+<div class="col-lg-2  col-md-1 ">
+            <p class="copyright text-muted">Copyright &copy; COT 2016</p>
+          </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <ul class="list-inline text-right">
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
 
-<%= link_to "update", "/feeds/#{@feed.id}/edit", method: :get %>
-<br>
-
-<%= link_to "delete", "/feeds/#{@feed.id}", method: :delete %>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -28,4 +28,5 @@ class HomesController < ApplicationController
     end
     redirect_to '/usrinterface'
   end
+
 end

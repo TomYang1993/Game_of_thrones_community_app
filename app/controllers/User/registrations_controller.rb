@@ -1,7 +1,11 @@
 class User::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
-  #
+before_action :configure_permitted_parameters, if: :devise_controller?
+def configure_permitted_parameters
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name])
+end
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -10,7 +14,8 @@ class User::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super do
-      resource.profile_pic = "http://theredlist.com/media/database/films/tv-series/fantasy-and-sci-fi/2010/game-of-thrones/032-game-of-thrones-theredlist.jpg"
+      resource.user_name = params[:user_name]
+      resource.profile_pic = "http://dergipark.gov.tr/assets/app/images/buddy_sample.png"
       resource.honor = 0
       resource.save
     end
@@ -23,9 +28,9 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
-    @user = User.find_by(id: current_user.id)
-    @user.update(user_name: params[user_name])
+    super do
+      resource.update!(user_name: params[:user_name])
+    end
   end
 
   # DELETE /resource

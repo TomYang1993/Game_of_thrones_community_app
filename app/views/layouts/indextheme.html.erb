@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
     <%= stylesheet_link_tag 'indextheme/indextheme_manifest' %>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
@@ -81,6 +82,8 @@
 
 
   <%= javascript_include_tag 'indextheme/indextheme_manifest' %>
+
+
   <script type="text/javascript">
 		jQuery(document).ready(function() {
 			App.init();

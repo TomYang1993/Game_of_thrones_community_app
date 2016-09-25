@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   get '/skip' => 'homes#skip'
   get '/usrinterfaces' => 'usrinterfaces#index'
   get '/usrinterface' => 'usrinterfaces#show'
+  get '/usrinterface/setting' => 'usrinterfaces#setting'
+  get '/map' => 'maps#index'
 
   resources :feeds
   resources :questions
   resources :answers
   resources :housepages
-  resources :userpages
 
   namespace :api do
     namespace :v1 do

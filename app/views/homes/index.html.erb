@@ -543,7 +543,7 @@
 <!-- QUOTE section -->
 
 <!-- house stark -->
-<% if current_user && current_user.house.name == "Stark" %>
+<% if current_user && current_user.house&&current_user.house.name == "Stark" %>
 	<div class="parallax-quote parallaxBg">
 		<div class="container">
 			<div class="parallax-quote-in">
@@ -554,7 +554,7 @@
 	</div>
 <% end %>
 
-<% if current_user && current_user.house.name == "Lannister" %>
+<% if current_user && current_user.house&&current_user.house.name == "Lannister" %>
 	<div class="parallax-quote parallaxBg">
 		<div class="container">
 			<div class="parallax-quote-in">
@@ -565,7 +565,7 @@
 	</div>
 <% end %>
 
-<% if current_user && current_user.house.name == "Targaryen" %>
+<% if current_user && current_user.house&&current_user.house.name == "Targaryen" %>
 	<div class="parallax-quote parallaxBg">
 		<div class="container">
 			<div class="parallax-quote-in">
@@ -576,7 +576,7 @@
 	</div>
 <% end %>
 
-<% if current_user && current_user.house.name == "Baratheon" %>
+<% if current_user && current_user.house&&current_user.house.name == "Baratheon" %>
 	<div class="parallax-quote parallaxBg">
 		<div class="container">
 			<div class="parallax-quote-in">
@@ -587,7 +587,7 @@
 	</div>
 <% end %>
 
-<% if current_user && current_user.house.name == "Martell" %>
+<% if current_user && current_user.house&&current_user.house.name == "Martell" %>
 	<div class="parallax-quote parallaxBg">
 		<div class="container">
 			<div class="parallax-quote-in">
@@ -598,7 +598,7 @@
 	</div>
 <% end %>
 
-<% if current_user && current_user.house.name == "Bolton" %>
+<% if current_user && current_user.house&&current_user.house.name == "Bolton" %>
 	<div class="parallax-quote parallaxBg">
 		<div class="container">
 			<div class="parallax-quote-in">
@@ -609,7 +609,7 @@
 	</div>
 <% end %>
 
-<% if current_user && current_user.house.name == "Greyjoy" %>
+<% if current_user && current_user.house&&current_user.house.name == "Greyjoy" %>
 	<div class="parallax-quote parallaxBg">
 		<div class="container">
 			<div class="parallax-quote-in">
@@ -620,7 +620,7 @@
 	</div>
 <% end %>
 
-<% if current_user && current_user.house.name == "Tyrell" %>
+<% if current_user && current_user.house&& current_user.house.name == "Tyrell" %>
 	<div class="parallax-quote parallaxBg">
 		<div class="container">
 			<div class="parallax-quote-in">
@@ -697,17 +697,65 @@
 
 		<% end %>
 
-		<div class="copyright-section">
-			<p><%= Time.now.year %> &copy; All Rights Reserved. </p>
-				<!-- <p>	Unify Theme by <a target="_blank" href="https://twitter.com/htmlstream">Htmlstream</a></p> -->
-			<!-- <ul class="social-icons">
-				<li><a href="#" data-original-title="Facebook" class="social_facebook rounded-x"></a></li>
-				<li><a href="#" data-original-title="Twitter" class="social_twitter rounded-x"></a></li>
-				<li><a href="#" data-original-title="Goole Plus" class="social_googleplus rounded-x"></a></li>
-				<li><a href="#" data-original-title="Pinterest" class="social_pintrest rounded-x"></a></li>
-				<li><a href="#" data-original-title="Linkedin" class="social_linkedin rounded-x"></a></li>
-			</ul> -->
-			<span class="page-scroll"><a href="#intro"><i class="fa fa-angle-double-up back-to-top"></i></a></span>
+		<!--=== Footer Version 1 ===-->
+		<div class="footer-v1">
+
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<p>
+								2015 &copy; All Rights Reserved.
+								<a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+							</p>
+						</div>
+
+						<!-- Social Links -->
+						<div class="col-md-6">
+							<ul class="footer-socials list-inline">
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
+										<i class="fa fa-skype"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+										<i class="fa fa-google-plus"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+										<i class="fa fa-linkedin"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
+										<i class="fa fa-pinterest"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
+										<i class="fa fa-dribbble"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<!-- End Social Links -->
+					</div>
+				</div>
+			</div><!--/copyright-->
 		</div>
+		<!--=== End Footer Version 1 ===-->
+
 	</section>
 	<!-- End Contact Section -->

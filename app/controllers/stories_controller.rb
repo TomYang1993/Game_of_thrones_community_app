@@ -46,4 +46,5 @@ class StoriesController < ApplicationController
     @story.destroy
     redirect_to "/stories"
   end
+
 end
