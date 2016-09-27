@@ -1,4 +1,5 @@
 class HousepagesController < ApplicationController
+  layout 'housetheme'
   before_action :authenticate_user!
   def index
     @houses = House.all
@@ -14,6 +15,7 @@ class HousepagesController < ApplicationController
     @house.users.each do |user|
       @honor += user.honor
     end
+    @sort_users = @house.users.sort {|a,b| a.honor <=> b.honor}
   end
 
   def new

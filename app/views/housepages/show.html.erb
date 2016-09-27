@@ -1,29 +1,118 @@
-<h1>House <%= @house.name %> </h1>
+<!--=== Header ===-->
+<nav class="one-page-header one-page-header-style-2 navbar navbar-default navbar-fixed-top architecture-nav one-page-nav-scrolling one-page-nav__fixed" role="navigation">
 
-<%= @house.name %>
-<br>
-<%= @house.motto %>
-<br>
-<br>
-<%= @honor %>
-<br>
 
-<% @house_bios.each do |bio| %>
-<%= bio.content %>
-<hr>
-<% end %>
+    <div class="menu-container page-scroll">
+      <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="container no-padding-left ">
+      <div class="row collapse navbar-collapse navbar-ex1-collapse">
+        <div class="col-md-5 no-side-padding">
+          <div class="left">
+            <div class="menu-container">
+              <ul class="nav navbar-nav">
+                <li class="page-scroll home">
+                  <a href="/">Home</a>
+                </li>
 
-<% @house_images.each do |image| %>
-<%= image.link %>
-<hr>
-<% end %>
+                <li class="page-scroll">
+                  <a href="/housepages">All houses</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-<% @house_stories.each do |story| %>
-<%= story.content %>
-<hr>
-<% end %>
+        <div class="col-md-2 no-side-padding">
+          <div class="center-block logo page-scroll">
+            <a class="logo-link navbar-brand logo-centered" href="#">
+              <img class="default-logo" src="<%= @house.house_badges.first.image %>" alt="Logo">
+            </a>
+          </div>
+        </div>
 
-<% @house_badge.each do |badge| %>
-<%= badge.image %>
-<hr>
-<% end %>
+        <div class="col-md-5 no-side-padding">
+          <div class="right">
+            <div class="menu-container">
+              <ul class="nav navbar-nav">
+                <!-- <li class="page-scroll">
+                  <a href="#team">Team</a>
+                </li> -->
+
+                <li class="page-scroll">
+                  <a href="/usrinterface">User</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+</nav>
+<!--=== End Header ===-->
+
+
+
+<!--About Section-->
+<section id="about" style="margin-top:30px;">
+  <div class="container content-lg">
+    <div class="g-heading-v7 text-center g-mb-70">
+      <h2 class="h2"><em class="block-name">House </em> <%= @house.name %></h2>
+    </div>
+
+    <!-- all for your comfort blocks -->
+   <% @house.housepages.each do |housepage| %>
+    <div class="row equal-height-columns">
+      <div class="col-md-3 arch-service arch-service-1" style="background-image:url('<%= housepage.image %>');">
+        <div class="arch-service-in img-hover-1 equal-height-column">
+          <span aria-hidden="true" class="icon-picture icon"></span>
+          <h3><%= housepage.name %></h3>
+          <p><%= housepage.bio %></p>
+          <button class="arch-service-btn" data-toggle="modal" data-target="#myModal">Read More</button>
+        </div>
+      </div>
+      <% end %>
+
+
+
+    </div>
+
+
+    <!--Awards Section-->
+  	<section id="awards">
+  		<div class="awards-section">
+  			<div class="container content-md">
+  				<div class="row">
+  					<div class="col-md-3 g-heading-v7 text-center">
+  						<h2 class="h2 g-mb-30"><em class="block-name">House <%= @house.name %></em> Honor Billboard</h2>
+  							<p class="g-mb-30">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero.</p>
+  					</div>
+
+  					<!-- awards -->
+  					<div class="col-md-9 awards-desc">
+  						<div class="row">
+                <% @sort_users.each do |user| %>
+  							<div class="col-md-4 award-div">
+  								<img src="<%= user.profile_pic %>" alt="">
+  								<em>User</em>
+  								<h3><%= user.email %></h3>
+  								<h4><%= user.honor %></h4>
+  							</div>
+
+              <% end %>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+
+  		</div>
+  	</section>
+  	<!--End of Awards Section-->
