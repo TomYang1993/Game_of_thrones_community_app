@@ -9,6 +9,7 @@ class Api::V1::AnswersController < ApplicationController
     )
 
     if answer.save
+      current_user.update(honor: current_user.honor + 5) 
       @question = answer.question
       render 'create'
     else

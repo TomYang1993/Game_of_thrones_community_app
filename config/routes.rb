@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post '/feedvotes' => 'feedvotes#create'
-      post '/upvote' => 'feedvotes#upvotecreate'
-      post '/downvote' => 'feedvotes#downvotecreate'
+      post '/upvotes' => 'feedvotes#upvotecreate'
+      post '/downvotes' => 'feedvotes#downvotecreate'
       get '/feeds' => 'feeds#index'
       get '/feeds/:id' => 'feeds#show'
       get '/questions' => 'questions#index'

@@ -29,20 +29,37 @@
   }
 
 
-    $scope.favorite = function(feed) {
-      feed.favorite = feed.favorite ? 0 : 1
+    $scope.upvote = function(answer) {
+      answer.upvote = answer.upvote ? 0 : 1
       // prefers to pass numbers/strings in the params instead of booleans
       // 0 is falsey in JS - so set favorite to 0 if 1, 1 if 0
       // Then Rails can handle the params appropriately
-      var feedParams = {
-        feed_id: feed.id,
-        favorite: feed.favorite
+      var answerParams = {
+        answer_id: answer.id,
+        upvote: answer.upvote
       }
-      $http.post('/api/v1/feedvotes.json', feedParams).then(function(response) {
-        feed.favoriteMessage = response.data.success;
+      $http.post('/api/v1/upvotes.json', answerParams).then(function(response) {
+        answer.favoriteMessage = response.data.success;
       });
       $timeout(function() {
-        feed.favoriteMessage = null;
+        answer .favoriteMessage = null;
+      }, 1500)
+    }
+
+    $scope.downvote = function(answer) {
+      answer.downvote = answer.downvote ? 0 : 1
+      // prefers to pass numbers/strings in the params instead of booleans
+      // 0 is falsey in JS - so set favorite to 0 if 1, 1 if 0
+      // Then Rails can handle the params appropriately
+      var answerParams = {
+        answer_id: answer.id,
+        downvote: answer.downvote
+      }
+      $http.post('/api/v1/downvotes.json', answerParams).then(function(response) {
+        answer.favoriteMessage = response.data.success;
+      });
+      $timeout(function() {
+        answer.favoriteMessage = null;
       }, 1500)
     }
 

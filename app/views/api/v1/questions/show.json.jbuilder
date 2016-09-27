@@ -7,4 +7,6 @@ json.answers @question.answers.order(created_at: :desc).each do |answer|
   json.question_id answer.question_id
   json.user_id answer.user_id
   json.profile_pic answer.user.house.housepages.first.image
+  json.upvote @currentanswersup.include?(answer)
+  json.downvote @currentanswersdown.include?(answer)
 end

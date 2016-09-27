@@ -172,7 +172,7 @@
 
 						<div class="row">
 							<!--Alert-->
-							<div class="col-sm-7 sm-margin-bottom-30">
+							<div class="col-sm-6 sm-margin-bottom-30">
 								<div class="panel panel-profile">
 									<div class="panel-heading overflow-h">
 										<h2 class="panel-title heading-sm pull-left"><i class="fa fa-send"></i> Feeds you liked</h2>
@@ -195,7 +195,32 @@
 								</div>
 							</div>
 							<!--End Alert-->
+							<!--Alert-->
+							<div class="col-sm-6 sm-margin-bottom-30">
+								<div class="panel panel-profile">
+									<div class="panel-heading overflow-h">
+										<h2 class="panel-title heading-sm pull-left"><i class="fa fa-send"></i> Answers you voted</h2>
+										<a href="#"><i class="fa fa-cog pull-right"></i></a>
+									</div>
+									<div id="scrollbar3" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+
+										<% current_user.upvotes.each do |upvote| %>
+										<div class="alert-blocks alert-blocks-success ">
+											<i class="icon-custom rounded-x icon-bg-green fa fa-gratipay"></i>
+											<div class="overflow-h">
+												<strong class="color-yellow">Voted <small class="pull-right"><em>2 days ago</em></small></strong>
+												<a href="questions/<%= upvote.answer.question.id %>"><p><%= upvote.answer.content %></p></a>
+											</div>
+										</div>
+									 <% end %>
+
+
+									</div>
+								</div>
+							</div>
+							<!--End Alert-->
 						</div><!--/end row-->
+
 
 					</div>
 				</div>

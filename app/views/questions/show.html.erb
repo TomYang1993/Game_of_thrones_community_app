@@ -28,8 +28,17 @@
         {{answer.content}}
         <hr>
       </div>
+      <div class="col-md-3">
+        <i ng-click="upvote(answer)" ng-class="{'fa-thumbs-up': answer.upvote, 'fa-thumbs-o-up': !answer.upvote}" class="fa fa-lg pull-right " aria-hidden="true"></i>
+        <i ng-click="downvote(answer)" ng-class="{'fa-thumbs-down': answer.downvote, 'fa-thumbs-o-down': !answer.downvote}" class="fa fa-lg pull-right " aria-hidden="true"></i>
+
+      </div>
+      <!-- <div class="col-md-3">
+
+        Upvote<i ng-click="upvote(answer)" ng-class="{'fa-thumbs-up': answer.upvote, 'fa-thumbs-o-up': !answer.upvote}" class="fa fa-lg pull-right " aria-hidden="true"></i>
+
+      </div> -->
     </div>
-    <!-- Vote : {{feed.votes}}   <i ng-click="favorite(feed)" ng-class="{'fa-heart': feed.favorite, 'fa-heart-o': !feed.favorite}" class="fa fa-lg pull-right heart" aria-hidden="true"></i> -->
 
     <div class="row" style="margin-bottom: 20px;">
       <div class="col-sm-6">

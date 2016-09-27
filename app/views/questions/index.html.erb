@@ -13,6 +13,19 @@
     </div>
 </header>
 
+<div class="container">
+  <h1> Ask a new question !</h1>
+   <%= form_tag("/questions", method: :post ) do  %>
+      <li><%= label_tag(:content) %>
+      <%= text_field_tag(:content)   %></li>
+
+
+      <%= hidden_field_tag(:user_id)   %>
+
+      <%= submit_tag("create a question") %>
+   <% end %>
+ </div>
+
 <!-- Main Content -->
 <div class="container">
     <div class="row">

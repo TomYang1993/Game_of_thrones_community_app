@@ -17,9 +17,10 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(
       content: params[:content],
-      user_id: params[:user_id]
+      user_id: current_user.id
     )
     if @question.save
+      current_user.update(honor: current_user.honor + 10) 
       flash[:success] = "You have created a feed!"
       redirect_to "/questions/#{@question.id}"
     else

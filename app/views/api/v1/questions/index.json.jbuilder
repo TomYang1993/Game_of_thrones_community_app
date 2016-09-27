@@ -8,5 +8,6 @@ json.array! @questions.each do |question|
     json.question_id answer.question_id
     json.user_id answer.user_id
     json.profile_pic answer.user.house.housepages.first.image
+    
   end
 end
