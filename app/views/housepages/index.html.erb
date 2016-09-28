@@ -66,7 +66,8 @@
 
   <% @houses.each do |house| %>
     <img src="<%= house.house_badges.first.image %>" style="height:50px;width:50px;">
-    <a href="/housepages/<%= house.id %>" class="list-group-item list-group-item-action"><%= house.name %></a>
+    <a href="/housepages/<%= house.id %>" class="list-group-item list-group-item-action"><%= house.name %>  <span class="pull-right">Honor <%= house.honor %></span></a>
+
   <% end %>
 </div>
 </div>

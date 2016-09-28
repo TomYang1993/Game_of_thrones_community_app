@@ -3,6 +3,14 @@ class HousepagesController < ApplicationController
   before_action :authenticate_user!
   def index
     @houses = House.all
+    @houses.each do |house|
+      total_honor = 0
+      house.users.each do |user|
+        total_honor += user.honor
+      end
+      house.update(honor: total_honor)
+    end
+    @houses = @houses.sort{|a,b| b.honor  <=> a.honor}
   end
 
   def show
@@ -15,7 +23,7 @@ class HousepagesController < ApplicationController
     @house.users.each do |user|
       @honor += user.honor
     end
-    @sort_users = @house.users.sort {|a,b| a.honor <=> b.honor}
+    @sort_users = @house.users.sort {|a,b| b.honor <=> a.honor}
     @sort_users = @sort_users.take(3)
   end
 
