@@ -130,9 +130,16 @@
 										<hr>
 
 									</dl>
-									<button type="button" class="btn-u btn-u-default">Cancel</button>
-									<%= button_to "Edit Profile", "/users/edit", method: :get %>
-                  <%= button_to "retake the test", "/test", method: :get %>
+									<div>
+										<div class="row">
+											 <div class="col-md-3">
+											   <%= button_to "Edit Profile", "/users/edit", method: :get,class: "btn btn-primary" %>
+										   </div>
+											 <div class="col-md-3">
+											   <%= button_to "retake the test", "/test", method: :get ,class: "btn btn-primary"%>
+											 </div>
+										 </div>
+								  </div>
 								</div>
 
 								<!-- <div id="passwordTab" class="profile-edit tab-pane fade">

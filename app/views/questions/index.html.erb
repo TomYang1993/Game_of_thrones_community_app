@@ -13,18 +13,46 @@
     </div>
 </header>
 
-<div class="container">
-  <h1> Ask a new question !</h1>
-   <%= form_tag("/questions", method: :post ) do  %>
-      <li><%= label_tag(:content) %>
-      <%= text_field_tag(:content)   %></li>
 
 
-      <%= hidden_field_tag(:user_id)   %>
+<!-- Button trigger modal -->
+<button style="margin-left:30px;margin-bottom:50px;" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Ask a new question
+</button>
 
-      <%= submit_tag("create a question") %>
-   <% end %>
- </div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Hey, <%= current_user.email %></h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <h3 style="margin-bottom:20px;"> Ask a new question !</h3>
+           <%= form_tag("/questions", method: :post ) do  %>
+
+              <%= text_area_tag(:content, nil,class: 'input-area')   %>
+
+
+              <%= hidden_field_tag(:user_id)   %>
+
+
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= submit_tag("Ask!", class: "btn btn-primary") %>
+     <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <!-- Main Content -->
 <div class="container">
@@ -47,9 +75,6 @@
 
             <!-- Pager -->
             <ul class="pager">
-                <li class="next">
-                    <a href="#">Older Posts &rarr;</a>
-                </li>
             </ul>
         </div>
     </div>

@@ -16,6 +16,7 @@ class HousepagesController < ApplicationController
       @honor += user.honor
     end
     @sort_users = @house.users.sort {|a,b| a.honor <=> b.honor}
+    @sort_users = @sort_users.take(3)
   end
 
   def new

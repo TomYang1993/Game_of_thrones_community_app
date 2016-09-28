@@ -35,8 +35,7 @@
         <div class="col-md-2 no-side-padding">
           <div class="center-block logo page-scroll">
             <a class="logo-link navbar-brand logo-centered" href="#intro">
-              <img class="default-logo" src="assets/img/logo-light.png" alt="Logo">
-              <img class="shrink-logo" src="assets/img/logo-dark.png" alt="Logo">
+              <img class="default-logo" src="https://s-media-cache-ak0.pinimg.com/originals/e2/c3/0e/e2c30e6c92075fb77ad2043a4630b0f2.jpg" alt="Logo">
             </a>
           </div>
         </div>
@@ -59,3 +58,44 @@
   <!-- /.container -->
 </nav>
 <!--=== End Header ===-->
+
+
+<div class="container" style="margin-top:200px;">
+  <h2 style="margin-top:30px;margin-bottom:30px;">house Honor Billboard</h2>
+  <div class="list-group">
+
+  <% @houses.each do |house| %>
+    <img src="<%= house.house_badges.first.image %>" style="height:50px;width:50px;">
+    <a href="/housepages/<%= house.id %>" class="list-group-item list-group-item-action"><%= house.name %></a>
+  <% end %>
+</div>
+</div>
+
+
+
+
+<!--Contact Section-->
+<section id="contact">
+
+
+  <!-- copyrights -->
+  <div class="copyrights container-fluid bg-color-com page-scroll">
+    <div clas="container">
+      <div class="col-md-3">
+      <a class="footer-logo" href="#intro">
+        <img class="img-responsive" src="http://i2.mirror.co.uk/incoming/article8364666.ece/ALTERNATES/s615b/GoTs-Gyroscope.jpg" alt="Logo">
+      </a>
+    </div>
+      <div class="col-md-3 pull-right">
+      <ul class="list-inline footer-list">
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</section>
+<!--End of Contact Section-->
