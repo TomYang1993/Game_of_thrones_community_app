@@ -1,0 +1,81 @@
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('http://i.kinja-img.com/gawker-media/image/upload/olrfuukcekeda9eal81j.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <% @questions.each do |question| %>
+            <div class="post-preview">
+                <a href="post.html">
+                    <h2 class="post-title">
+                      <a href="/questions/<%= question.id %>">  <%= question.content %> </a>
+                    </h2>
+                    <h3 class="post-subtitle">
+                      <i class="fa fa-user-secret"> <%= question.answers.size %> Answers </i>
+                    </h3>
+                </a>
+                <p class="post-meta">Posted by <a href="#"><%= question.user.email %></a> <%= question.created_at %></p>
+            </div>
+            <hr>
+            <% end %>
+
+            <!-- Pager -->
+            <ul class="pager">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<!-- Footer -->
+<footer style="padding:10px 0px 10px 0px">
+    <div class="container">
+        <div class="row">
+<div class="col-lg-2  col-md-1 ">
+            <p class="copyright text-muted">Copyright &copy; COT 2016</p>
+          </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <ul class="list-inline text-right">
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</footer>

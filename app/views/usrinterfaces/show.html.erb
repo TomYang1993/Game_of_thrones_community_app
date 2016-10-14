@@ -1,35 +1,292 @@
-<h1>  Welcome to your profile page  </h1>
 
-<li><h4>username or user email</h4><%= @user.email %></li>
-
-<li><h4>the profile pic link</h4><%= @user.profile_pic %></li>
-
-<li><h4>Honor that a user has</h4><%= @user.honor %></li>
-
-<li><h4>House the user belong</h4><%= @user.house.name %></li>
-
-
-
-<h2>Feeds user liked !</h2>
-<% @user.feed_votes.each do |feedvote| %>
-<li><%=  feedvote.feed.content %></li>
-<% end %>
-
-<h2>Questions user put !</h2>
-<% @user.questions.each do |question| %>
-<li><%=  question.content %></li>
-<% end %>
-
-
-<h2>Questions user involved !</h2>
-<% @user.answers.each do |answer| %>
-<li><%=  answer.question.id %></li>
-<li><%=  answer.question.content %></li>
-<% end %>
-
-
-<h2>  Stories user liked !</h2>
+		<!--=== Profile ===-->
+		<div class="container content profile" id="profile_homepage_user">
+			<div class="row">
+				<!--Left Sidebar-->
+				<div class="col-md-3 md-margin-bottom-40">
+					<% if @user.house.housepages.first %>
+					<img class="img-responsive profile-img margin-bottom-20" src="<%= @user.house.housepages.first.image %>" alt="profile_img">
+         <% else %>
+				 <img class="img-responsive profile-img margin-bottom-20" src="<%= @user.profile_pic %>" alt="profile_img">
+         <% end %>
+					<ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+						<li class="list-group-item active">
+							<a href="/usrinterface"><i class="fa fa-bar-chart-o"></i> Overall</a>
+						</li>
+						<li class="list-group-item">
+							<a href="usrinterface/setting"><i class="fa fa-cog"></i> Settings</a>
+						</li>
+					</ul>
 
 
 
-<h2>  Stories user created !</h2>
+
+
+
+
+					<!--Notification-->
+					<div class="panel-heading-v2 overflow-h">
+						<h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> Notification</h2>
+						<a href="#"><i class="fa fa-cog pull-right"></i></a>
+					</div>
+					<ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
+						<li class="notification">
+							<span class="fa-stack fa-lg">
+							  <i class="fa fa-square-o fa-stack-2x"></i>
+							  <i class="fa fa-bell fa-stack-1x"></i>
+							</span>
+							<div class="overflow-h">
+								<span><strong>New feeds</strong> </span>
+								<small>Two minutes ago</small>
+							</div>
+						</li>
+						<li class="notification">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-square-o fa-stack-2x"></i>
+								<i class="fa fa-bell fa-stack-1x"></i>
+							</span>
+							<div class="overflow-h">
+								<span><strong>New answer</strong> to your question</span>
+								<small>Today 18:25 pm</small>
+							</div>
+						</li>
+						<li class="notification">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-square-o fa-stack-2x"></i>
+								<i class="fa fa-bell fa-stack-1x"></i>
+							</span>
+							<div class="overflow-h">
+								<span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
+								<small>Yesterday 1:07 pm</small>
+							</div>
+						</li>
+						<li class="notification">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-square-o fa-stack-2x"></i>
+								<i class="fa fa-bell fa-stack-1x"></i>
+							</span>
+							<div class="overflow-h">
+								<span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
+								<small>23/12 11:01 am</small>
+							</div>
+						</li>
+
+					</ul>
+					<button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>
+					<!--End Notification-->
+
+					<div class="margin-bottom-50"></div>
+
+				 </div>
+				<!--End Left Sidebar-->
+
+				<!-- Profile Content -->
+				<div class="col-md-9">
+					<div class="profile-body" style="background-image:url(<%= current_user.house.background_image %>); ">
+
+
+						<!--Service Block v3 House card-->
+						<div class="row margin-bottom-50">
+							<div class="col-sm-6 sm-margin-bottom-20">
+								<div class="service-block-v3 service-block-u" style="background-color:#060606;" >
+									<i class="fa fa-users"></i>
+									<span class="service-heading">House population</span>
+									<span class="counter"><%= current_user.house.users.size %></span>
+									<div class="clearfix margin-bottom-10"></div>
+                     <span class="service-heading">House <%= current_user.house.name %></span>
+									<div class="clearfix margin-bottom-10"></div>
+                     <span class="service-heading"><%= current_user.house.motto %></span>
+									<div class="row margin-bottom-20">
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-6 sm-margin-bottom-20">
+								<div class="service-block-v3 service-block-u" style="background-color:#060606;" >
+									<i class="fa fa-bank"></i>
+									<span class="service-heading">Honor for House</span>
+									<span class="counter"><%= current_user.honor %></span>
+									<div class="clearfix margin-bottom-10"></div>
+                     <span class="service-heading">House <%= current_user.house.name %></span>
+									<div class="clearfix margin-bottom-10"></div>
+                     <span class="service-heading"><%= current_user.house.motto %></span>
+									<div class="row margin-bottom-20">
+									</div>
+								</div>
+							</div>
+
+
+
+						</div><!--/end row-->
+						<!--End Service Block v3-->
+
+
+						<div class="row margin-bottom-50">
+							<!--Profile Post  questions you created-->
+							<div class="col-sm-6">
+								<div class="panel panel-profile no-bg">
+									<div class="panel-heading overflow-h">
+										<h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i>Your Questions</h2>
+										<a href="#"><i class="fa fa-cog pull-right"></i></a>
+									</div>
+									<div id="scrollbar" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+                   <% current_user.questions.each_with_index do |question,index| %>
+										<div class="profile-post color-one">
+											<span class="profile-post-numb"><%= index + 1 %></span>
+											<div class="profile-post-in margin-bottom-10 margin-left-10">
+												<a href="/questions/<%= question.id %>"><p><%= question.content %></p></a>
+											</div>
+										</div>
+										<% end %>
+
+									</div>
+								</div>
+							</div>
+							<!--End Profile Post-->
+
+							<!--Profile Event-->
+							<div class="col-sm-6 md-margin-bottom-20">
+								<div class="panel panel-profile no-bg">
+									<div class="panel-heading overflow-h">
+										<h2 class="panel-title heading-sm pull-left"><i class="fa fa-comment"></i>Questions you answered </h2>
+										<a href="#"><i class="fa fa-cog pull-right"></i></a>
+									</div>
+									<div id="scrollbar2" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+								<% if @answered_questions != [nil]%>
+                  <% @answered_questions.each_with_index do |question,index| %>
+										<div class="profile-event">
+											<div class="date-formats">
+												<span><%= index + 1 %></span>
+											</div>
+											<div class="overflow-h margin-top-40 margin-bottom-20" >
+
+												<a href="/questions/<%= question.id %>"><p><%= question.content %></p>
+											</div>
+										</div>
+                  <% end %>
+								<% end %>
+									</div>
+								</div>
+							</div>
+							<!--End Profile Event-->
+						</div><!--/end row-->
+
+
+						<div class="row">
+							<!--Alert-->
+							<div class="col-sm-6 sm-margin-bottom-30">
+								<div class="panel panel-profile">
+									<div class="panel-heading overflow-h">
+										<h2 class="panel-title heading-sm pull-left"><i class="fa fa-send"></i> Feeds you liked</h2>
+										<a href="#"><i class="fa fa-cog pull-right"></i></a>
+									</div>
+									<div id="scrollbar3" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+
+                    <% current_user.feed_votes.each do |feedvote| %>
+										<div class="alert-blocks alert-blocks-info ">
+											<i class="icon-custom rounded-x icon-bg-blue fa fa-gratipay"></i>
+											<div class="overflow-h">
+												<strong class="color-blue">Liked <small class="pull-right"><em>2 days ago</em></small></strong>
+												<a href="feeds/<%= feedvote.feed.id %>"><p><%= feedvote.feed.title %></p></a>
+											</div>
+										</div>
+                   <% end %>
+
+
+									</div>
+								</div>
+							</div>
+							<!--End Alert-->
+							<!--Alert-->
+							<div class="col-sm-6 sm-margin-bottom-30">
+								<div class="panel panel-profile">
+									<div class="panel-heading overflow-h">
+										<h2 class="panel-title heading-sm pull-left"><i class="fa fa-send"></i> Answers you voted</h2>
+										<a href="#"><i class="fa fa-cog pull-right"></i></a>
+									</div>
+									<div id="scrollbar3" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+
+										<% current_user.upvotes.each do |upvote| %>
+										<div class="alert-blocks alert-blocks-success ">
+											<i class="icon-custom rounded-x icon-bg-green fa fa-gratipay"></i>
+											<div class="overflow-h">
+												<strong class="color-yellow">Voted <small class="pull-right"><em>2 days ago</em></small></strong>
+												<a href="questions/<%= upvote.answer.question.id %>"><p><%= upvote.answer.content %></p></a>
+											</div>
+										</div>
+									 <% end %>
+
+
+									</div>
+								</div>
+							</div>
+							<!--End Alert-->
+						</div><!--/end row-->
+
+
+					</div>
+				</div>
+				<!-- End Profile Content -->
+			</div>
+		</div><!--/container-->
+		<!--=== End Profile ===-->
+
+		<!--=== Footer Version 1 ===-->
+		<div class="footer-v1">
+
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<p>
+								2015 &copy; All Rights Reserved.
+								<a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+							</p>
+						</div>
+
+						<!-- Social Links -->
+						<div class="col-md-6">
+							<ul class="footer-socials list-inline">
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
+										<i class="fa fa-skype"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+										<i class="fa fa-google-plus"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+										<i class="fa fa-linkedin"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
+										<i class="fa fa-pinterest"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
+										<i class="fa fa-dribbble"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<!-- End Social Links -->
+					</div>
+				</div>
+			</div><!--/copyright-->
+		</div>
+		<!--=== End Footer Version 1 ===-->

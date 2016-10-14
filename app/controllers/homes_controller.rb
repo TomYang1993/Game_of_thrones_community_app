@@ -24,10 +24,9 @@ class HomesController < ApplicationController
   def skip
     if !current_user.house
       @user = current_user
-      @user.update!(house_id: 9)
+      @user.update!(house_id: 17)
     end
     redirect_to '/usrinterface'
   end
-
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921011555) do
+ActiveRecord::Schema.define(version: 20160928194444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20160921011555) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "downvotes", force: :cascade do |t|
+    t.integer  "answer_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,6 +88,18 @@ ActiveRecord::Schema.define(version: 20160921011555) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "housepages", force: :cascade do |t|
+    t.integer  "house_id"
+    t.integer  "character_id"
+    t.text     "bio"
+    t.string   "image"
+    t.string   "banner"
+    t.string   "name"
+    t.text     "story"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "houses", force: :cascade do |t|
     t.string   "name"
     t.string   "motto"
@@ -89,6 +108,7 @@ ActiveRecord::Schema.define(version: 20160921011555) do
     t.text     "history_description"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "honor"
   end
 
   create_table "icons", force: :cascade do |t|
@@ -120,6 +140,13 @@ ActiveRecord::Schema.define(version: 20160921011555) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "upvotes", force: :cascade do |t|
+    t.integer  "answer_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_stories", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "story_id"
@@ -143,6 +170,7 @@ ActiveRecord::Schema.define(version: 20160921011555) do
     t.string   "profile_pic"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "user_name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

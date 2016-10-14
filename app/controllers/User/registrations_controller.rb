@@ -1,16 +1,21 @@
 class User::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
-  #
+
+
   # GET /resource/sign_up
   # def new
   #   super
   # # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do
+      resource.profile_pic = "http://dergipark.gov.tr/assets/app/images/buddy_sample.png"
+      resource.honor = 0
+      resource.save
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -18,11 +23,11 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  def update
-    super
-    @user = User.find_by(id: current_user.id)
-    @user.update(user_name: params[user_name])
-  end
+  # def update
+  #   super do
+  #     resource.update!(user_name: params[:user_name])
+  #   end
+  # end
 
   # DELETE /resource
   # def destroy
@@ -53,10 +58,12 @@ class User::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up.
   def after_sign_up_path_for(resource)
     super(resource)
+    "/test"
   end
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     super(resource)
+    "/test"
   end
 end

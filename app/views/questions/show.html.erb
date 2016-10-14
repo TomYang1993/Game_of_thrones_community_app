@@ -1,33 +1,102 @@
-<h1>Here is the question !</h1>
+<div ng-app="app">
+  <div ng-controller="updownvoteCtrl" ng-init="setup(<%= params[:id] %>)">
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('http://2.bp.blogspot.com/-mexyDwCZL88/VwFLJ5bDjiI/AAAAAAAASNQ/H4QJVAzp80kWXHlbLFrqyZJhu1x4daqwA/s1600/Game%2Bof%2Bthrones.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
 
-<ul>
-  <li>Question ID:<%= @question.id %></li>
-  <li><%= @question.content %></li>
-  <ol>
-    <% @answers.each do |answer| %>
-      <li><%= answer.user.email %><br><%= answer.content %></li>
-      <hr>
-    <% end %>
-  </ol>
-
-  <%= form_tag("/answers",method: :post) do%>
-  <li><%= label_tag(:content) %>
-  <%= text_field_tag(:content)   %></li>
-
-  <li><%= label_tag(:question_id) %>
-  <%= text_field_tag(:question_id,@question.id)   %></li>
-
-  <li><%= label_tag(:user_id) %>
-  <%= text_field_tag(:user_id,current_user.id)   %></li>
-
-  <%= submit_tag("Answer the question !!") %>
-  <% end %>
-
-  <li>User <h3><%= @question.user.email %></h3>  put forward this issue</li>
-</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 
-<%= link_to "update", "/questions/#{@question.id}/edit", method: :get %>
-<br>
+<div  class="post-preview" >
+  <div class="container">
+    <h4 class="post-subtitle" style="margin-bottom: 40px;padding-left:30px;">
+        {{question.content}}
+    </h4>
+    <div class="row" ng-repeat="answer in question.answers">
+      <div class="col-md-1">
+        <img src="{{answer.profile_pic}}" style="height:60%;width:60%;">
+      </div>
+      <div class="col-md-5">
+        {{answer.content}}
+        <hr>
+      </div>
+      <div class="col-md-3">
+        <i ng-click="upvote(answer)" ng-class="{'fa-thumbs-up': answer.upvote, 'fa-thumbs-o-up': !answer.upvote}" class="fa fa-lg pull-right " aria-hidden="true"></i>
+        <i ng-click="downvote(answer)" ng-class="{'fa-thumbs-down': answer.downvote, 'fa-thumbs-o-down': !answer.downvote}" class="fa fa-lg pull-right " aria-hidden="true"></i>
 
-<%= link_to "delete", "/questions/#{@question.id}", method: :delete %>
+      </div>
+      <!-- <div class="col-md-3">
+
+        Upvote<i ng-click="upvote(answer)" ng-class="{'fa-thumbs-up': answer.upvote, 'fa-thumbs-o-up': !answer.upvote}" class="fa fa-lg pull-right " aria-hidden="true"></i>
+
+      </div> -->
+    </div>
+
+    <div class="row" style="margin-bottom: 20px;">
+      <div class="col-sm-6">
+        <textarea ng-model="answer" type="text" class="form-control" rows="4" placeholder="Answer it!"></textarea>
+      </div>
+      <div class="col-sm-2">
+        <input ng-click="createAnswer(answer, question)" type="submit" class="btn btn-default" value="Submit">
+      </div>
+      <div class="alert col-sm-4" ng-class="{'alert-danger': error, 'alert-success': createdMessage}" role="alert">
+        {{ error }}
+        {{ createdMessage }}
+      </div>
+    </div>
+
+  </div>
+</div>
+<hr>
+
+
+
+<!-- Footer -->
+<footer style="padding:10px 0px 10px 0px">
+    <div class="container">
+        <div class="row">
+<div class="col-lg-2  col-md-1 ">
+            <p class="copyright text-muted">Copyright &copy; COT 2016</p>
+          </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <ul class="list-inline text-right">
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>

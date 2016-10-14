@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  layout 'questionstheme'
+  before_action :authenticate_user!
   def index
     @questions = Question.all
   end
@@ -15,9 +17,10 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(
       content: params[:content],
-      user_id: params[:user_id]
+      user_id: current_user.id
     )
     if @question.save
+      current_user.update(honor: current_user.honor + 10) 
       flash[:success] = "You have created a feed!"
       redirect_to "/questions/#{@question.id}"
     else
@@ -44,5 +47,15 @@ class QuestionsController < ApplicationController
     @question = Question.find_by(id: params[:id])
     @question.destroy
     redirect_to "/questions"
+  end
+
+  def hot
+    @questions = Question.all
+    @questions = @questions.sort { |a,b| b.answers.size <=> a.answers.size }
+  end
+
+  def filternew
+    @questions = Question.all
+    @questions = @questions.sort { |a,b| b.created_at <=> a.created_at }
   end
 end

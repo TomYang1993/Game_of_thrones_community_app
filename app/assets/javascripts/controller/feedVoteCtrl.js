@@ -52,11 +52,13 @@
     //       return true;
     //     }
     // };
-    $scope.items = 10
-    $scope.toggleShow = function(){
-      console.log($scope.items);
-       $scope.items = $scope.items === 10? 20 : 10
-    };
+
+    
+    // $scope.items = 10
+    // $scope.toggleShow = function(){
+    //   console.log($scope.items);
+    //    $scope.items = $scope.items === 10? 20 : 10
+    // };
 
   });
 })();

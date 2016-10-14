@@ -9,18 +9,26 @@ Rails.application.routes.draw do
   get '/skip' => 'homes#skip'
   get '/usrinterfaces' => 'usrinterfaces#index'
   get '/usrinterface' => 'usrinterfaces#show'
+  get '/usrinterface/setting' => 'usrinterfaces#setting'
+  get '/map' => 'maps#index'
 
   resources :feeds
   resources :questions
+  get '/hot' => 'questions#hot'
+  get '/filternew' => 'questions#filternew'
   resources :answers
   resources :housepages
-  resources :userpages
 
   namespace :api do
     namespace :v1 do
       post '/feedvotes' => 'feedvotes#create'
+      post '/upvotes' => 'feedvotes#upvotecreate'
+      post '/downvotes' => 'feedvotes#downvotecreate'
       get '/feeds' => 'feeds#index'
       get '/feeds/:id' => 'feeds#show'
+      get '/questions' => 'questions#index'
+      get '/questions/:id' => 'questions#show'
+      post '/answers' => 'answers#create'
     end
   end
 

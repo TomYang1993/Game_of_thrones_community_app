@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>House <%= @house.name %> </h1>
 
 <%= @house.name %>
@@ -28,3 +29,152 @@
 <%= badge.image %>
 <hr>
 <% end %>
+=======
+<!--=== Header ===-->
+<nav class="one-page-header one-page-header-style-2 navbar navbar-default navbar-fixed-top architecture-nav one-page-nav-scrolling one-page-nav__fixed" role="navigation">
+
+
+    <div class="menu-container page-scroll">
+      <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="container no-padding-left ">
+      <div class="row collapse navbar-collapse navbar-ex1-collapse">
+        <div class="col-md-5 no-side-padding">
+          <div class="left">
+            <div class="menu-container">
+              <ul class="nav navbar-nav">
+                <li class="page-scroll home">
+                  <a href="/">Home</a>
+                </li>
+
+                <li class="page-scroll">
+                  <a href="/housepages">All houses</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2 no-side-padding">
+          <div class="center-block logo page-scroll">
+            <a class="logo-link navbar-brand logo-centered" href="#">
+              <img class="default-logo" src="<%= @house.house_badges.first.image %>" alt="Logo">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-5 no-side-padding">
+          <div class="right">
+            <div class="menu-container">
+              <ul class="nav navbar-nav">
+                <!-- <li class="page-scroll">
+                  <a href="#team">Team</a>
+                </li> -->
+
+                <li class="page-scroll">
+                  <a href="/usrinterface">User</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+</nav>
+<!--=== End Header ===-->
+
+
+
+<!--About Section-->
+<section id="about" style="margin-top:30px;">
+  <div class="container content-lg">
+    <div class="g-heading-v7 text-center g-mb-70">
+      <h2 class="h2"><em class="block-name">House </em> <%= @house.name %></h2>
+    </div>
+
+    <!-- all for your comfort blocks -->
+   <% @house.housepages.each do |housepage| %>
+    <div class="row equal-height-columns">
+      <div class="col-md-3 arch-service arch-service-1" style="background-image:url('<%= housepage.image %>');">
+        <div class="arch-service-in img-hover-1 equal-height-column">
+          <span aria-hidden="true" class="icon-picture icon"></span>
+          <h3><%= housepage.name %></h3>
+          <p><%= housepage.bio %></p>
+          <button class="arch-service-btn" data-toggle="modal" data-target="#myModal">Read More</button>
+        </div>
+      </div>
+      <% end %>
+
+
+
+    </div>
+  </section>
+
+
+    <!--Awards Section-->
+  	<section id="awards">
+  		<div class="awards-section">
+  			<div class="container content-md">
+  				<div class="row">
+  					<div class="col-md-3 g-heading-v7 text-center">
+  						<h2 class="h2 g-mb-30"><em class="block-name">House <%= @house.name %></em> Honor Billboard</h2>
+  							<p class="g-mb-30"> Show in real time  </p>
+                <p class="g-mb-30"> The users earn the most honor  </p>
+  					</div>
+
+  					<!-- awards -->
+  					<div class="col-md-9 awards-desc">
+  						<div class="row">
+                <% @sort_users.each do |user| %>
+  							<div class="col-md-4 award-div">
+  								<img src="<%= user.profile_pic %>" alt="">
+  								<em>User</em>
+  								<h3><%= user.email %></h3>
+  								<h4><%= user.honor %></h4>
+  							</div>
+
+              <% end %>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+
+  		</div>
+  	</section>
+  	<!--End of Awards Section-->
+
+
+    <!--Contact Section-->
+  	<section id="contact">
+
+
+  		<!-- copyrights -->
+  		<div class="copyrights container-fluid bg-color-com page-scroll">
+  			<div clas="container">
+          <div class="col-md-3">
+  				<a class="footer-logo" href="#intro">
+  					<img class="img-responsive" src="http://i2.mirror.co.uk/incoming/article8364666.ece/ALTERNATES/s615b/GoTs-Gyroscope.jpg" alt="Logo">
+  				</a>
+        </div>
+          <div class="col-md-3 pull-right">
+  				<ul class="list-inline footer-list">
+  					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+  					<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+  					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+  					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+  					<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+  				</ul>
+        </div>
+  			</div>
+  		</div>
+  	</section>
+  	<!--End of Contact Section-->
+>>>>>>> themeupdate
