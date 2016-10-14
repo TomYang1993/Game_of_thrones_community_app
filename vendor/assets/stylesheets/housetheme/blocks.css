@@ -4295,8 +4295,9 @@
 }
 
 .blog-thumb .blog-thumb-hover:hover .hover-grad {
-  opacity: 1;  
-  transition: opacity 0.55s,transform 0.55s;
+  opacity: 1;
+
+  transition: opacity 0.55s, transform 0.55s;
 }
 
 /*Blog Thumb Description*/
